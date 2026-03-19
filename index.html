@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zodiac · Akshay | Portfolio</title>
+  <meta name="description" content="Zodiac (Akshay) — personal portfolio showcasing skills, projects, and experience." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- EmailJS — replace YOUR_PUBLIC_KEY with your own key from emailjs.com -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+
+  <!-- ══════════════════════ SPLASH SCREEN ══════════════════════ -->
+  <div id="splash">
+    <div class="splash-content">
+      <div class="splash-logo">
+        <span class="splash-bracket">&lt;</span>
+        <span class="splash-name">Zodiac</span>
+        <span class="splash-bracket">/&gt;</span>
+      </div>
+      <div class="splash-bar-wrap">
+        <div class="splash-bar" id="splash-bar"></div>
+      </div>
+      <p class="splash-text">Loading experience…</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ CUSTOM CURSOR ══════════════════════ -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ══════════════════════ SCROLL PROGRESS ══════════════════════ -->
+  <div id="scroll-progress"></div>
+
+  <!-- ═══════════════════════════ NAVBAR ════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>Z<span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero"        class="nav-link active">Home</a></li>
+        <li><a href="#about"       class="nav-link">About</a></li>
+        <li><a href="#experience"  class="nav-link">Experience</a></li>
+        <li><a href="#skills"      class="nav-link">Skills</a></li>
+        <li><a href="#projects"    class="nav-link">Projects</a></li>
+        <li><a href="#contact"     class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-btn" title="Toggle theme" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════ HERO ══════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="particles" id="particles"></div>
+      <div class="hero-glow glow-1"></div>
+      <div class="hero-glow glow-2"></div>
+    </div>
+    <div class="hero-content">
+      <div class="available-badge animate-fade-up delay-1">
+        <span class="avail-dot"></span> Available for work
+      </div>
+      <p class="hero-greeting animate-fade-up delay-2">👋 Hello, I'm</p>
+
+      <!-- ANIMATED NAME -->
+      <h1 class="hero-name animate-fade-up delay-3">
+        <span class="name-zodiac" id="name-zodiac"></span>
+        <span class="name-real">(Akshay)</span>
+      </h1>
+
+      <div class="hero-roles animate-fade-up delay-4">
+        <span class="role-prefix">I build </span>
+        <span class="role-rotator" id="role-rotator">
+          <span class="role active">Embedded Systems</span>
+          <span class="role">AI Applications</span>
+          <span class="role">Web Apps</span>
+          <span class="role">IoT Solutions</span>
+        </span>
+      </div>
+      <p class="hero-desc animate-fade-up delay-5">
+        ECE student at CUSAT with a passion for Embedded Systems, IoT &amp; AI.<br/>
+        I build things that blend hardware intelligence with smart software.
+      </p>
+      <div class="hero-cta animate-fade-up delay-6">
+        <a href="#projects" class="btn btn-primary magnetic">View My Work <i class="fas fa-arrow-right"></i></a>
+        <a href="#contact"  class="btn btn-outline magnetic">Get In Touch</a>
+      </div>
+      <div class="hero-socials animate-fade-up delay-7">
+        <a href="https://linkedin.com" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:akshayalappuzha@gmail.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ ABOUT ══════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Who I Am</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-image-wrap reveal">
+          <div class="about-img-container">
+            <div class="about-img-placeholder" id="about-img">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="about-img-ring ring-1"></div>
+            <div class="about-img-ring ring-2"></div>
+            <div class="experience-badge">
+              <span class="badge-number">2+</span>
+              <span class="badge-label">Years<br>Experience</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <h3 class="about-heading">Electronics Engineer with a passion for <span class="highlight">Embedded Systems</span> &amp; <span class="highlight">AI</span></h3>
+          <p class="about-desc">
+            Hi! I'm <strong>Akshay B</strong> — an Electronics and Communication Engineering student at CUSAT, Ernakulam with a solid foundation in electronics and a keen interest in embedded systems, IoT, and software development.
+          </p>
+          <p class="about-desc">
+            I have hands-on experience with microcontrollers, sensors, communication modules, frontend development, and AI integrations. I build practical systems that bridge hardware intelligence with smart software to solve real-world problems.
+          </p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-target="3">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Projects Built</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="5">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Certifications</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary magnetic" download>
+            <i class="fas fa-download"></i> Download Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ EXPERIENCE / TIMELINE ═══════════════════ -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">My Journey</span>
+        <h2 class="section-title">Experience & Education</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item reveal" data-delay="0">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass">
+            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> May 2025 – June 2025</span>
+            <div class="timeline-badge work">Internship</div>
+            <h3 class="timeline-role">Embedded System Intern</h3>
+            <h4 class="timeline-org">Evolve Robotics · Kadavanthra, Ernakulam, Kerala</h4>
+            <p class="timeline-desc">Gained hands-on experience with embedded systems and microcontroller-based hardware development. Worked on real-world automation and robotics projects.</p>
+            <div class="timeline-tags">
+              <span>Embedded C</span><span>Microcontrollers</span><span>Hardware Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item right reveal" data-delay="100">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass">
+            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> Aug 2023 – Present</span>
+            <div class="timeline-badge edu">Education</div>
+            <h3 class="timeline-role">B.E. in Electronics &amp; Communication</h3>
+            <h4 class="timeline-org">CUSAT · Ernakulam, Kerala</h4>
+            <p class="timeline-desc">Pursuing Bachelor of Engineering in Electronics and Communication at Cochin University of Science and Technology. Focus on embedded systems, IoT, and software integration.</p>
+            <div class="timeline-tags">
+              <span>ECE</span><span>IoT</span><span>Embedded Systems</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal" data-delay="200">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass">
+            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> Sep 2023 – Present</span>
+            <div class="timeline-badge work">Certification</div>
+            <h3 class="timeline-role">CCBP 4.0 Certification Program</h3>
+            <h4 class="timeline-org">NxtWave · India</h4>
+            <p class="timeline-desc">Completed industry-ready certifications in Frontend Development, SQL, Python, Embedded C, and Agent AI through the CCBP 4.0 intensive program.</p>
+            <div class="timeline-tags">
+              <span>Frontend</span><span>Python</span><span>Agent AI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item right reveal" data-delay="300">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass">
+            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> Jun 2020 – Aug 2022</span>
+            <div class="timeline-badge edu">Education</div>
+            <h3 class="timeline-role">HSC · Class XII</h3>
+            <h4 class="timeline-org">Sacred Heart Public School · Kilimala, Changanassery, Kerala</h4>
+            <p class="timeline-desc">Completed Higher Secondary Education with a focus on Science stream — Physics, Chemistry, Mathematics and Computer Science.</p>
+            <div class="timeline-tags">
+              <span>Science</span><span>Mathematics</span><span>CS</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ SKILLS ═══════════════════════════════ -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">What I Know</span>
+        <h2 class="section-title">Skills & Technologies</h2>
+      </div>
+      <div class="skills-tabs reveal">
+        <button class="tab-btn active" data-tab="frontend">Languages &amp; Web</button>
+        <button class="tab-btn" data-tab="backend">AI &amp; Cloud</button>
+        <button class="tab-btn" data-tab="tools">Tools &amp; Platforms</button>
+      </div>
+      <div class="skills-content">
+        <div class="tab-panel active" id="tab-frontend">
+          <div class="skills-grid">
+            <div class="skill-card glass reveal" data-delay="0">
+              <div class="skill-icon"><i class="fab fa-js"></i></div>
+              <span class="skill-name">JavaScript ES6+</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-card glass reveal" data-delay="100">
+              <div class="skill-icon"><i class="fab fa-python"></i></div>
+              <span class="skill-name">Python</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-card glass reveal" data-delay="200">
+              <div class="skill-icon" style="font-size:1.6rem;font-weight:700;color:var(--accent)">C++</div>
+              <span class="skill-name">C / C++</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            </div>
+            <div class="skill-card glass reveal" data-delay="300">
+              <div class="skill-icon"><i class="fab fa-html5"></i></div>
+              <span class="skill-name">HTML5</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-card glass reveal" data-delay="400">
+              <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+              <span class="skill-name">CSS3</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-card glass reveal" data-delay="500">
+              <div class="skill-icon" style="font-size:1.5rem;font-weight:700;color:var(--accent)">SQL</div>
+              <span class="skill-name">SQL &amp; NoSQL</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-panel" id="tab-backend">
+          <div class="skills-grid">
+            <div class="skill-card glass" data-delay="0">
+              <div class="skill-icon"><i class="fas fa-brain"></i></div>
+              <span class="skill-name">Machine Learning</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+            </div>
+            <div class="skill-card glass" data-delay="100">
+              <div class="skill-icon" style="font-size:1.4rem;font-weight:700;color:var(--accent)">TF</div>
+              <span class="skill-name">TensorFlow</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="68"></div></div>
+            </div>
+            <div class="skill-card glass" data-delay="200">
+              <div class="skill-icon"><i class="fas fa-robot"></i></div>
+              <span class="skill-name">Agent AI</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            </div>
+            <div class="skill-card glass" data-delay="300">
+              <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+              <span class="skill-name">AWS Cloud</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+            </div>
+            <div class="skill-card glass" data-delay="400">
+              <div class="skill-icon" style="font-size:1.4rem;font-weight:700;color:var(--accent)">API</div>
+              <span class="skill-name">API Integration</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+            </div>
+            <div class="skill-card glass" data-delay="500">
+              <div class="skill-icon" style="font-size:1.3rem;font-weight:700;color:var(--accent)">MCP</div>
+              <span class="skill-name">MCP Architecture</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-panel" id="tab-tools">
+          <div class="skills-grid">
+            <div class="skill-card glass" data-delay="0">
+              <div class="skill-icon" style="font-size:1.4rem;font-weight:700;color:var(--accent)">ESP</div>
+              <span class="skill-name">ESP32 / Arduino</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-card glass" data-delay="100">
+              <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+              <span class="skill-name">Make.com</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+            </div>
+            <div class="skill-card glass" data-delay="200">
+              <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+              <span class="skill-name">Git &amp; GitHub</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+            </div>
+            <div class="skill-card glass" data-delay="300">
+              <div class="skill-icon" style="font-size:1.4rem;font-weight:700;color:var(--accent)">CAD</div>
+              <span class="skill-name">CATIA V5 / ANSYS</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+            </div>
+            <div class="skill-card glass" data-delay="400">
+              <div class="skill-icon" style="font-size:1.4rem;font-weight:700;color:var(--accent)">MAT</div>
+              <span class="skill-name">MATLAB</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+            </div>
+            <div class="skill-card glass" data-delay="500">
+              <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+              <span class="skill-name">Embedded C</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ PROJECTS ══════════════════════════════ -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">What I've Built</span>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+      <!-- FILTER BUTTONS -->
+      <div class="project-filters reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai">AI / ML</button>
+        <button class="filter-btn" data-filter="embedded">Embedded</button>
+        <button class="filter-btn" data-filter="automation">Automation</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+      </div>
+      <div class="projects-grid" id="projects-grid">
+
+        <article class="project-card glass reveal" data-delay="0" data-tags="ai,web,automation">
+          <div class="project-img">
+            <div class="project-img-placeholder gradient-1">
+              <i class="fas fa-server"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="overlay-btn"><i class="fas fa-eye"></i> Demo</a>
+              <a href="#" class="overlay-btn"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Cursor</span><span class="tag">MCP</span><span class="tag">Twilio</span><span class="tag">ElevenLabs</span>
+            </div>
+            <h3 class="project-title">MCP Server Tool – API-Driven AI Apps</h3>
+            <p class="project-desc">Built an MCP server tool using Cursor with API integration to develop AI applications — YouTube playlist design, railway status checking, and AI-powered customer call service using Twilio &amp; ElevenLabs.</p>
+            <div class="project-links">
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+              <a href="#" class="project-link"><i class="fab fa-github"></i> Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass reveal" data-delay="100" data-tags="embedded">
+          <div class="project-img">
+            <div class="project-img-placeholder gradient-3">
+              <i class="fas fa-solar-panel"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="overlay-btn"><i class="fas fa-eye"></i> Demo</a>
+              <a href="#" class="overlay-btn"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">ESP32</span><span class="tag">Arduino</span><span class="tag">Embedded C</span><span class="tag">LDR</span>
+            </div>
+            <h3 class="project-title">ESP32 Rotatable Solar Panel System</h3>
+            <p class="project-desc">Designed an ESP32-based solar tracking system that rotates toward maximum sunlight using LDR sensors and Arduino programming. Improved solar energy capture compared to a fixed panel.</p>
+            <div class="project-links">
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+              <a href="#" class="project-link"><i class="fab fa-github"></i> Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass reveal" data-delay="200" data-tags="ai,automation">
+          <div class="project-img">
+            <div class="project-img-placeholder gradient-2">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="overlay-btn"><i class="fas fa-eye"></i> Demo</a>
+              <a href="#" class="overlay-btn"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Telegram API</span><span class="tag">Make.com</span><span class="tag">Agent AI</span>
+            </div>
+            <h3 class="project-title">AI-Based ATS Resume Checker</h3>
+            <p class="project-desc">AI-powered ATS resume checker via Telegram Bot — accepts resume links, analyzes them using AI agent-based text analysis, and sends personalized improvement suggestions through email via Make.com automation.</p>
+            <div class="project-links">
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+              <a href="#" class="project-link"><i class="fab fa-github"></i> Repo</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ CONTACT ════════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Let's Talk</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3 class="contact-heading">Have a project in mind?<br><span class="highlight">Let's make it happen.</span></h3>
+          <p class="contact-desc">Whether you want to collaborate on an embedded project, an AI application, or just say hello — I'm always open to new opportunities.</p>
+          <div class="contact-items">
+            <a href="mailto:akshayalappuzha@gmail.com" class="contact-item">
+              <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <span class="contact-item-label">Email</span>
+                <span class="contact-item-value">akshayalappuzha@gmail.com</span>
+              </div>
+            </a>
+            <a href="tel:+917736179383" class="contact-item">
+              <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <span class="contact-item-label">Phone</span>
+                <span class="contact-item-value">+91 77361 79383</span>
+              </div>
+            </a>
+            <div class="contact-item">
+              <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <span class="contact-item-label">Location</span>
+                <span class="contact-item-value">Ernakulam, Kerala, India</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://linkedin.com" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="mailto:akshayalappuzha@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <form class="contact-form glass reveal" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="user_name" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="user_email" placeholder="john@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full magnetic">
+            Send Message <i class="fas fa-paper-plane"></i>
+          </button>
+          <div class="form-status" id="form-status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ FOOTER ══════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-content">
+        <a href="#hero" class="nav-logo footer-logo">
+          <span class="logo-bracket">&lt;</span>Zodiac<span class="logo-bracket">/&gt;</span>
+        </a>
+        <p class="footer-text">Designed & Built by <span class="highlight">Zodiac · Akshay</span> · 2025</p>
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Made with <i class="fas fa-heart" style="color:#e25555"></i> and lots of ☕ by Akshay</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" title="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
