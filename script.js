@@ -31,7 +31,7 @@ if (typeof emailjs !== 'undefined') {
 /* ──────────────────────────────────────────
    1. SPLASH SCREEN
 ────────────────────────────────────────── */
-const splash    = document.getElementById('splash');
+const splash = document.getElementById('splash');
 const splashBar = document.getElementById('splash-bar');
 let progress = 0;
 const splashTick = setInterval(() => {
@@ -67,23 +67,23 @@ function buildZodiacName() {
     span.textContent = ch;
 
     // Randomise each letter's wave speed so they drift out of sync naturally
-    const waveDur   = (2.2 + Math.random() * 1.8).toFixed(2) + 's';
+    const waveDur = (2.2 + Math.random() * 1.8).toFixed(2) + 's';
     const dropDelay = (0.5 + i * 0.09).toFixed(2) + 's';
     const waveDelay = (1.6 + i * 0.22).toFixed(2) + 's';
     span.style.animationDuration = `0.65s, ${waveDur}`;
-    span.style.animationDelay   = `${dropDelay}, ${waveDelay}`;
+    span.style.animationDelay = `${dropDelay}, ${waveDelay}`;
 
     // Hover: jump & glow — JS handles restore so it's smooth
     span.addEventListener('mouseenter', function () {
       const dir = i % 2 === 0 ? -10 : 10;
       this.style.transition = 'transform 0.18s cubic-bezier(.175,.885,.32,1.275), filter 0.18s';
-      this.style.transform  = `translateY(-22px) scale(1.45) rotate(${dir}deg)`;
-      this.style.filter     = 'brightness(1.7) drop-shadow(0 0 18px rgba(108,99,255,0.95))';
+      this.style.transform = `translateY(-22px) scale(1.45) rotate(${dir}deg)`;
+      this.style.filter = 'brightness(1.7) drop-shadow(0 0 18px rgba(108,99,255,0.95))';
       this.style.animationPlayState = 'running, paused';
     });
     span.addEventListener('mouseleave', function () {
-      this.style.transform  = '';
-      this.style.filter     = '';
+      this.style.transform = '';
+      this.style.filter = '';
       this.style.transition = 'transform 0.4s cubic-bezier(.175,.885,.32,1.275), filter 0.4s';
       this.style.animationPlayState = '';
       setTimeout(() => { this.style.transition = ''; }, 420);
@@ -96,16 +96,16 @@ function buildZodiacName() {
 /* ──────────────────────────────────────────
    3. CUSTOM CURSOR
 ────────────────────────────────────────── */
-const cursorDot  = document.getElementById('cursor-dot');
+const cursorDot = document.getElementById('cursor-dot');
 const cursorRing = document.getElementById('cursor-ring');
 let mouseX = 0, mouseY = 0;
-let ringX  = 0, ringY  = 0;
+let ringX = 0, ringY = 0;
 
 document.addEventListener('mousemove', (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
   cursorDot.style.left = mouseX + 'px';
-  cursorDot.style.top  = mouseY + 'px';
+  cursorDot.style.top = mouseY + 'px';
 });
 
 // Smooth ring follow
@@ -113,28 +113,28 @@ function animateRing() {
   ringX += (mouseX - ringX) * 0.12;
   ringY += (mouseY - ringY) * 0.12;
   cursorRing.style.left = ringX + 'px';
-  cursorRing.style.top  = ringY + 'px';
+  cursorRing.style.top = ringY + 'px';
   requestAnimationFrame(animateRing);
 }
 animateRing();
 
 // Cursor "click" shrink
 document.addEventListener('mousedown', () => {
-  cursorDot.style.transform  = 'translate(-50%,-50%) scale(0.6)';
+  cursorDot.style.transform = 'translate(-50%,-50%) scale(0.6)';
   cursorRing.style.transform = 'translate(-50%,-50%) scale(0.7)';
 });
 document.addEventListener('mouseup', () => {
-  cursorDot.style.transform  = 'translate(-50%,-50%) scale(1)';
+  cursorDot.style.transform = 'translate(-50%,-50%) scale(1)';
   cursorRing.style.transform = 'translate(-50%,-50%) scale(1)';
 });
 
 // Hide cursor when leaving window
 document.addEventListener('mouseleave', () => {
-  cursorDot.style.opacity  = '0';
+  cursorDot.style.opacity = '0';
   cursorRing.style.opacity = '0';
 });
 document.addEventListener('mouseenter', () => {
-  cursorDot.style.opacity  = '1';
+  cursorDot.style.opacity = '1';
   cursorRing.style.opacity = '0.6';
 });
 
@@ -154,15 +154,15 @@ window.addEventListener('scroll', () => {
    5. THEME TOGGLE
 ────────────────────────────────────────── */
 const themeToggle = document.getElementById('theme-toggle');
-const themeIcon   = document.getElementById('theme-icon');
-const savedTheme  = localStorage.getItem('theme') || 'dark';
+const themeIcon = document.getElementById('theme-icon');
+const savedTheme = localStorage.getItem('theme') || 'dark';
 
 document.documentElement.setAttribute('data-theme', savedTheme);
 updateThemeIcon(savedTheme);
 
 themeToggle.addEventListener('click', () => {
   const current = document.documentElement.getAttribute('data-theme');
-  const next    = current === 'dark' ? 'light' : 'dark';
+  const next = current === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
   updateThemeIcon(next);
@@ -176,7 +176,7 @@ function updateThemeIcon(theme) {
    6. HAMBURGER
 ────────────────────────────────────────── */
 const hamburger = document.getElementById('hamburger');
-const navMenu   = document.getElementById('nav-links');
+const navMenu = document.getElementById('nav-links');
 
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
@@ -192,10 +192,10 @@ navMenu.querySelectorAll('a').forEach(link => {
 /* ──────────────────────────────────────────
    7. NAVBAR SCROLL + ACTIVE LINK
 ────────────────────────────────────────── */
-const navbar   = document.getElementById('navbar');
+const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section[id]');
-const backTop  = document.getElementById('back-to-top');
+const backTop = document.getElementById('back-to-top');
 
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 20);
@@ -210,13 +210,13 @@ window.addEventListener('scroll', () => {
   });
 });
 
-backTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 /* ──────────────────────────────────────────
    8. HERO ROLE ROTATOR
 ────────────────────────────────────────── */
-const roles   = document.querySelectorAll('.role');
-let   roleIdx = 0;
+const roles = document.querySelectorAll('.role');
+let roleIdx = 0;
 
 function rotateRoles() {
   roles[roleIdx].classList.remove('active');
@@ -234,12 +234,12 @@ setInterval(rotateRoles, 2800);
   const container = document.getElementById('particles');
   if (!container) return;
   const canvas = document.createElement('canvas');
-  const ctx    = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d');
   container.appendChild(canvas);
   let W, H, pts;
 
   function resize() {
-    W = canvas.width  = window.innerWidth;
+    W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
   }
   resize();
@@ -248,42 +248,42 @@ setInterval(rotateRoles, 2800);
   class P {
     constructor() { this.reset(); }
     reset() {
-      this.x  = Math.random() * W;
-      this.y  = Math.random() * H;
-      this.r  = Math.random() * 1.8 + 0.4;
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.r = Math.random() * 1.8 + 0.4;
       this.vx = (Math.random() - 0.5) * 0.38;
       this.vy = (Math.random() - 0.5) * 0.38;
-      this.a  = Math.random() * 0.5 + 0.1;
+      this.a = Math.random() * 0.5 + 0.1;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
-      if (this.x < -5)  this.x = W + 5;
-      if (this.x > W+5) this.x = -5;
-      if (this.y < -5)  this.y = H + 5;
-      if (this.y > H+5) this.y = -5;
+      if (this.x < -5) this.x = W + 5;
+      if (this.x > W + 5) this.x = -5;
+      if (this.y < -5) this.y = H + 5;
+      if (this.y > H + 5) this.y = -5;
     }
     draw() {
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(108,99,255,${this.a})`;
       ctx.fill();
     }
   }
 
-  function init() { pts = Array.from({ length:85 }, () => new P()); }
+  function init() { pts = Array.from({ length: 85 }, () => new P()); }
 
   function connect() {
     for (let i = 0; i < pts.length; i++) {
-      for (let j = i+1; j < pts.length; j++) {
+      for (let j = i + 1; j < pts.length; j++) {
         const dx = pts[i].x - pts[j].x;
         const dy = pts[i].y - pts[j].y;
-        const d  = Math.sqrt(dx*dx + dy*dy);
+        const d = Math.sqrt(dx * dx + dy * dy);
         if (d < 110) {
           ctx.beginPath();
           ctx.moveTo(pts[i].x, pts[i].y);
           ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.strokeStyle = `rgba(108,99,255,${(1-d/110)*0.12})`;
-          ctx.lineWidth   = 0.7;
+          ctx.strokeStyle = `rgba(108,99,255,${(1 - d / 110) * 0.12})`;
+          ctx.lineWidth = 0.7;
           ctx.stroke();
         }
       }
@@ -326,10 +326,10 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 ────────────────────────────────────────── */
 function animateCount(el) {
   const target = parseInt(el.dataset.target);
-  const dur    = 1600;
-  const step   = target / (dur / 16);
-  let   cur    = 0;
-  const tick   = () => {
+  const dur = 1600;
+  const step = target / (dur / 16);
+  let cur = 0;
+  const tick = () => {
     cur = Math.min(cur + step, target);
     el.textContent = Math.floor(cur);
     if (cur < target) requestAnimationFrame(tick);
@@ -346,12 +346,12 @@ function animatePanel(panel) {
     setTimeout(() => f.style.width = f.dataset.width + '%', 80);
   });
   panel.querySelectorAll('.skill-card').forEach((card, i) => {
-    card.style.opacity   = '0';
+    card.style.opacity = '0';
     card.style.transform = 'translateY(22px)';
     setTimeout(() => {
       card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      card.style.opacity    = '1';
-      card.style.transform  = 'none';
+      card.style.opacity = '1';
+      card.style.transform = 'none';
     }, 60 * i);
   });
 }
@@ -373,7 +373,7 @@ const skillsObs = new IntersectionObserver(entries => {
     animatePanel(document.querySelector('.tab-panel.active'));
     skillsObs.disconnect();
   }
-}, { threshold:0.3 });
+}, { threshold: 0.3 });
 const skillsSection = document.getElementById('skills');
 if (skillsSection) skillsObs.observe(skillsSection);
 
@@ -387,11 +387,11 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     const filter = btn.dataset.filter;
 
     document.querySelectorAll('.project-card').forEach(card => {
-      const tags    = card.dataset.tags ? card.dataset.tags.split(',') : [];
+      const tags = card.dataset.tags ? card.dataset.tags.split(',') : [];
       const matches = filter === 'all' || tags.includes(filter);
 
       if (matches) {
-        card.style.display   = '';
+        card.style.display = '';
         card.style.animation = 'none';
         void card.offsetWidth; // reflow
         card.style.animation = 'filterIn 0.4s cubic-bezier(0.4,0,0.2,1) forwards';
@@ -419,16 +419,16 @@ document.head.appendChild(filterStyle);
 ────────────────────────────────────────── */
 document.querySelectorAll('.magnetic').forEach(el => {
   el.addEventListener('mousemove', (e) => {
-    const rect   = el.getBoundingClientRect();
-    const cx     = rect.left + rect.width  / 2;
-    const cy     = rect.top  + rect.height / 2;
-    const dx     = (e.clientX - cx) * 0.3;
-    const dy     = (e.clientY - cy) * 0.3;
+    const rect = el.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = (e.clientX - cx) * 0.3;
+    const dy = (e.clientY - cy) * 0.3;
     el.style.transform = `translate(${dx}px, ${dy}px)`;
   });
   el.addEventListener('mouseleave', () => {
     el.style.transition = 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1)';
-    el.style.transform  = '';
+    el.style.transform = '';
     setTimeout(() => el.style.transition = '', 500);
   });
   el.addEventListener('mouseenter', () => {
@@ -441,17 +441,17 @@ document.querySelectorAll('.magnetic').forEach(el => {
 ────────────────────────────────────────── */
 document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('mousemove', (e) => {
-    const rect  = card.getBoundingClientRect();
-    const dx    = (e.clientX - rect.left - rect.width/2)  / (rect.width/2);
-    const dy    = (e.clientY - rect.top  - rect.height/2) / (rect.height/2);
-    const tiltX =  dy * 5;
+    const rect = card.getBoundingClientRect();
+    const dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+    const dy = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+    const tiltX = dy * 5;
     const tiltY = -dx * 5;
     card.style.transition = 'transform 0.1s ease, box-shadow 0.3s, border-color 0.3s';
-    card.style.transform  = `translateY(-8px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+    card.style.transform = `translateY(-8px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
   });
   card.addEventListener('mouseleave', () => {
     card.style.transition = 'transform 0.5s ease, box-shadow 0.3s, border-color 0.3s';
-    card.style.transform  = '';
+    card.style.transform = '';
   });
 });
 
@@ -460,7 +460,7 @@ document.querySelectorAll('.project-card').forEach(card => {
    Using EmailJS — or simulated fallback
 ────────────────────────────────────────── */
 const contactForm = document.getElementById('contact-form');
-const formStatus  = document.getElementById('form-status');
+const formStatus = document.getElementById('form-status');
 
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
@@ -485,14 +485,14 @@ if (contactForm) {
       showStatus('error', '❌ Something went wrong. Please try again!');
     } finally {
       btn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
-      btn.disabled  = false;
+      btn.disabled = false;
     }
   });
 }
 
 function showStatus(type, msg) {
-  formStatus.className     = 'form-status ' + type;
-  formStatus.textContent   = msg;
+  formStatus.className = 'form-status ' + type;
+  formStatus.textContent = msg;
   setTimeout(() => { formStatus.textContent = ''; formStatus.className = 'form-status'; }, 6000);
 }
 
